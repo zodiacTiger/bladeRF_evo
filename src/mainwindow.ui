@@ -1,0 +1,1292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>674</width>
+    <height>628</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>674</width>
+    <height>628</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>674</width>
+    <height>628</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Titillium Web</family>
+    <pointsize>13</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>BladeRF Explorer v0.00001</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#MainWindow{
+background: url(&quot;../images/bg.png&quot;);
+background-color: rgb(69,69,69);
+border: 4px solid rgb(21, 166, 167);
+	font: 13pt &quot;Titillium Web&quot;;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(61, 61, 61)
+
+
+</string>
+   </property>
+   <widget class="QPushButton" name="rxButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>100</y>
+      <width>91</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::TabFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border: 2px solid rgb(172, 169, 174);
+            border-radius: 6px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+}
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255)
+}
+
+QPushButton:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+    </property>
+    <property name="text">
+     <string>RX START</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="txButton">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>100</y>
+      <width>81</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border: 2px solid rgb(172, 169, 174);
+            border-radius: 6px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+}
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255)
+}
+
+QPushButton:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+    </property>
+    <property name="text">
+     <string>TX START</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>170</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border: 2px solid rgb(172, 169, 174);
+            border-radius: 6px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+}
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255);
+}
+
+QPushButton:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+    </property>
+    <property name="text">
+     <string>STOP STREAM</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>400</y>
+      <width>461</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(132, 132, 132);
+border-radius: 8px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QSlider" name="gainSlider_RX2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>69</y>
+       <width>321</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+border-radius: 4px;
+padding-top: 2px;
+
+</string>
+     </property>
+     <property name="maximum">
+      <number>70</number>
+     </property>
+     <property name="sliderPosition">
+      <number>40</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="invertedAppearance">
+      <bool>false</bool>
+     </property>
+     <property name="invertedControls">
+      <bool>false</bool>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Rx2 Gain</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="gainValue_RX2">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>70</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">            border-radius: 3px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+		padding: 4px;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Tx1 Gain</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="gainValue_TX1">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>120</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">            border-radius: 3px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+		padding: 4px;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSlider" name="gainSlider_TX1">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>119</y>
+       <width>321</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+border-radius: 4px;
+padding-top: 2px;
+
+</string>
+     </property>
+     <property name="maximum">
+      <number>70</number>
+     </property>
+     <property name="sliderPosition">
+      <number>40</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="invertedAppearance">
+      <bool>false</bool>
+     </property>
+     <property name="invertedControls">
+      <bool>false</bool>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>150</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Tx2 Gain</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="gainValue_TX2">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>150</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">            border-radius: 3px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+		padding: 4px;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSlider" name="gainSlider_TX2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>149</y>
+       <width>321</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+border-radius: 4px;
+padding-top: 2px;
+
+</string>
+     </property>
+     <property name="maximum">
+      <number>70</number>
+     </property>
+     <property name="sliderPosition">
+      <number>40</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="invertedAppearance">
+      <bool>false</bool>
+     </property>
+     <property name="invertedControls">
+      <bool>false</bool>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>41</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+
+</string>
+     </property>
+     <property name="text">
+      <string>Rx1 Gain</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="gainValue_RX1">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>41</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">            border-radius: 3px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+		padding: 4px;
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSlider" name="gainSlider_RX1">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>40</y>
+       <width>321</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background-color: #333;
+border-radius: 4px;
+padding-top: 2px;
+
+</string>
+     </property>
+     <property name="maximum">
+      <number>70</number>
+     </property>
+     <property name="sliderPosition">
+      <number>40</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="invertedAppearance">
+      <bool>false</bool>
+     </property>
+     <property name="invertedControls">
+      <bool>false</bool>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+     <property name="tickInterval">
+      <number>1</number>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string notr="true" extracomment="dgfgfdsgfds"/>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QCheckBox
+{
+
+            border-radius: 3px;
+            background-color:rgb(108, 108, 108);
+            color: rgb(238, 238, 238);
+		padding: 4px;
+
+		
+}
+QCheckBox:focus
+{
+  border-color: rgb(73, 255, 31);
+}
+
+
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255)
+}
+
+QPushButton:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+     </property>
+     <property name="text">
+      <string>MIMO</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <zorder>label_4</zorder>
+    <zorder>gainSlider_RX2</zorder>
+    <zorder>gainValue_RX2</zorder>
+    <zorder>label_5</zorder>
+    <zorder>gainValue_TX1</zorder>
+    <zorder>gainSlider_TX1</zorder>
+    <zorder>label_6</zorder>
+    <zorder>gainValue_TX2</zorder>
+    <zorder>gainSlider_TX2</zorder>
+    <zorder>label_7</zorder>
+    <zorder>gainValue_RX1</zorder>
+    <zorder>gainSlider_RX1</zorder>
+    <zorder>checkBox</zorder>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>400</y>
+      <width>181</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(132, 132, 132);
+border-radius: 8px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="txFreqTextBox">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+          <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+border: 1px solid rgb(177, 180, 180);
+border-radius: 4px;
+color: rgb(232, 236, 236);
+</string>
+     </property>
+     <property name="inputMask">
+      <string>0000000000</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rxFreqTextBox">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+border: 1px solid rgb(177, 180, 180);
+border-radius: 4px;
+color: rgb(232, 236, 236);
+</string>
+     </property>
+     <property name="inputMask">
+      <string>0000000000</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="rxFreqInput">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background: none;
+</string>
+     </property>
+     <property name="text">
+      <string>Rx FREQ</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background: none;
+</string>
+     </property>
+     <property name="text">
+      <string>Tx FREQ</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>500</y>
+      <width>181</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(132, 132, 132);
+border-radius: 8px;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="txFreqTextBox_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+border: 1px solid rgb(177, 180, 180);
+border-radius: 4px;
+color: rgb(232, 236, 236);
+</string>
+     </property>
+     <property name="inputMask">
+      <string>0000000000</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rxFreqTextBox_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="acceptDrops">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(50, 50, 50);
+border: 1px solid rgb(177, 180, 180);
+border-radius: 4px;
+color: rgb(232, 236, 236);
+</string>
+     </property>
+     <property name="inputMask">
+      <string>0000000000</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="rxFreqInput_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background: none;
+</string>
+     </property>
+     <property name="text">
+      <string>Rx FREQ</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Titillium Web</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #f3f3f3;
+background: none;
+</string>
+     </property>
+     <property name="text">
+      <string>Tx FREQ</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="quitButton">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>10</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border: 2px solid rgb(172, 169, 174);
+            border-radius: 4px;
+            background-color:rgb(105, 107, 107);
+            color: rgb(255, 255, 255);
+		font-weight: bold;
+}
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	border-color : rgb(252, 51, 22);
+	color: rgb(252, 61, 28)
+}</string>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deviceButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>40</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border: 2px solid rgb(172, 169, 174);
+            border-radius: 6px;
+            background-color:rgb(105, 107, 107);
+
+            color: rgb(238, 238, 238);
+
+text-transform: uppercase;
+}
+
+QPushButton:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255)
+}
+
+QPushButton:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+    </property>
+    <property name="text">
+     <string>SHOW DEVICE INFO</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="deviceInfo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>461</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Titillium Web</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(37, 37, 37);
+border: 1px solid rgb(132, 132, 132);
+border-radius: 8px;
+color: rgb(66, 255, 15);
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 8px;
+padding-right: 4px;
+</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>231</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox
+{
+border: 1px solid rgb(172, 169, 174);
+            border-radius: 4px;
+            background-color:rgb(42, 42, 42);
+
+            color: rgb(238, 238, 238);
+}
+
+QComboBox:hover{
+	background-color: rgb(81, 81, 81);
+	color: rgb(23, 188, 255)
+}
+
+QComboBox:disabled {
+border-color: rgb(129, 128, 128);
+background-color: rgb(80, 82, 82);
+color: rgb(128, 130, 130);
+}</string>
+    </property>
+    <property name="currentText">
+     <string notr="true">Level 1 - Basic</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>16</width>
+      <height>16</height>
+     </size>
+    </property>
+    <item>
+     <property name="text">
+      <string>Level 1 - Basic</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Level 2 - Verbose</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Level 3 - Very Verbose</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Level 4 - Debug</string>
+     </property>
+    </item>
+   </widget>
+   <zorder>frame_2</zorder>
+   <zorder>frame</zorder>
+   <zorder>rxButton</zorder>
+   <zorder>txButton</zorder>
+   <zorder>stopButton</zorder>
+   <zorder>frame_3</zorder>
+   <zorder>quitButton</zorder>
+   <zorder>deviceButton</zorder>
+   <zorder>deviceInfo</zorder>
+   <zorder>comboBox</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="styleSheet">
+    <string notr="true">background-color : rgb(131, 133, 139);</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>quitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_quitButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>30</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gainSlider_RX1</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_gainChanged_RX1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>400</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>408</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gainSlider_RX2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_gainChanged_RX2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>448</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gainSlider_TX1</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_gainChanged_TX1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>499</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>gainSlider_TX2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_gainChanged_TX2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>549</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>313</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>clicked()</signal>
+  <signal>streamInfoUpdate(QString)</signal>
+  <slot>enableRXTXChanged()</slot>
+  <slot>on_quitButton_clicked()</slot>
+  <slot>on_stopButton_clicked()</slot>
+  <slot>on_gainChanged_RX1()</slot>
+  <slot>on_gainChanged_RX2()</slot>
+  <slot>on_gainChanged_TX1()</slot>
+  <slot>on_gainChanged_TX2()</slot>
+  <slot>on_deviceInfoUpdate(QString)</slot>
+ </slots>
+</ui>

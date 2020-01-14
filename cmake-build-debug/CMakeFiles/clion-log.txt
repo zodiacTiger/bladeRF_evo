@@ -1,0 +1,20 @@
+"/Users/zero5/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.18/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -G "CodeBlocks - Unix Makefiles" /Users/zero5/CLionProjects/bladeRF_evo
+-- 
+-- Checking for module SWIG
+-- Found SWIG version 3.0.12.
+-- FFTW3 LIBRARIES: 
+-- FFTW3 INCLUDE DIRS: 
+-- -----------------------------------------------
+-- |                                             |
+-- |          Install Prefix:/usr/local          |
+-- |          Build Type: Debug                  |
+-- |          C : 10.0.0.10001145                |
+-- |          C++ : 10.0.0.10001145              |
+-- |          Boost Ver. : 106600                |
+-- |                                             |
+-- |                                             |
+-- |                 ALL GOOD!                   |
+-- -----------------------------------------------
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/zero5/CLionProjects/bladeRF_evo/cmake-build-debug

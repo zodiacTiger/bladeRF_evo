@@ -1,0 +1,11 @@
+-I/Users/zero5/CLionProjects/bladeRF_evo/src/../include
+-I/opt/local/libexec/qt5/include
+-I/opt/local/include
+-I/opt/local/include/boost
+-I/Users/zero5/CLionProjects/bladeRF_evo/src
+-I/Users/zero5/CLionProjects/bladeRF_evo/cmake-build-debug/src
+-DLIBBLADERF_SEARCH_PREFIX="/usr/local"
+-DLOGGING_ENABLED=1
+-o
+/Users/zero5/CLionProjects/bladeRF_evo/cmake-build-debug/src/main.moc
+/Users/zero5/CLionProjects/bladeRF_evo/src/main.cpp
